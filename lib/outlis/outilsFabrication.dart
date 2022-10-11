@@ -177,7 +177,7 @@ class Outils extends StatelessWidget {
   }
 }
 
-void srmToRGB(double srm) {
+String srmToRGB(double srm) {
   double r, g, b;
   r = g = b = 0;
   if (srm >= 0 && srm <= 1) {
@@ -222,24 +222,23 @@ void srmToRGB(double srm) {
       b = 17;
     }
   }
-  /*
-        int red = r.intValue();
-        int green = g.intValue();
-        int blue = b.intValue();
-        //String rgb  = "#"+red.toHexString(red)+green.toHexString(green)+blue.toHexString(blue);
-        String rr = red.toHexString(red);
-        String gg = green.toHexString(green);
-        String bb = blue.toHexString(blue);
 
-        String rgb = "#";
-        if (rr.length()<2){
-            rr="0"+rr;
-        }else if (gg.length()<2){
-            gg="0"+gg;
-        }else if (bb.length()<2){
-            bb="0"+bb;
-        }
-        rgb = rgb+rr+gg+bb;
-        return rgb;
-        */
+  int red = r.toInt();
+  int green = g.toInt();
+  int blue = b.toInt();
+  //String rgb  = "#"+red.toHexString(red)+green.toHexString(green)+blue.toHexString(blue);
+  String rr = red.toRadixString(red);
+  String gg = green.toRadixString(green);
+  String bb = blue.toRadixString(blue);
+
+  String rgb = "#";
+  if (rr.length < 2) {
+    rr = "0" + rr;
+  } else if (gg.length < 2) {
+    gg = "0" + gg;
+  } else if (bb.length < 2) {
+    bb = "0" + bb;
+  }
+  rgb = rgb + rr + gg + bb;
+  return rgb;
 }

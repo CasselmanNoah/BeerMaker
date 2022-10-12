@@ -1,5 +1,6 @@
 import 'package:brmaker/mainBeerM.dart';
 import 'package:flutter/material.dart';
+import 'calcul.dart';
 
 class Outils extends StatelessWidget {
   const Outils({super.key});
@@ -8,7 +9,7 @@ class Outils extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     String _valeurSaisie = "";
-
+    CalculBeerMaker calculBeerMaker = CalculBeerMaker();
     return Scaffold(
       appBar: AppBar(
         title: Text("BeerMaker"),
@@ -47,7 +48,7 @@ class Outils extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "Volume de bière a fabriquer"),
+                      labelText: "Volume de bière a fabriqué"),
                   validator: (valeur) {
                     if (valeur == null || valeur.isEmpty) {
                       return 'Entré une donnée';
@@ -79,7 +80,7 @@ class Outils extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "Degré d'alccol rechercher"),
+                      labelText: "Degré d'alccol recherché"),
                   validator: (valeur) {
                     if (valeur == null || valeur.isEmpty) {
                       return 'Entré une donnée';
@@ -140,9 +141,7 @@ class Outils extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
-                  // Respond to button press
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: Colors.black, // Background color
                 ),
@@ -231,7 +230,7 @@ String srmToRGB(double srm) {
   String gg = green.toRadixString(green);
   String bb = blue.toRadixString(blue);
 
-  String rgb = "#";
+  String rgb = "0xFF";
   if (rr.length < 2) {
     rr = "0" + rr;
   } else if (gg.length < 2) {

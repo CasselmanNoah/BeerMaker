@@ -1,4 +1,4 @@
-# brmaker
+# beermaker
 
 A new Flutter project.
 
